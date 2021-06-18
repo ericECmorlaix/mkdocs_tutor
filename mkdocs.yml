@@ -21,6 +21,7 @@ nav:
     - MarkDown Jupyter : MarkDown-Le_BN_pour_rapporter.ipynb
     - HTML Jupyter : HTML-Le_BN_pour_multimedier.ipynb
     - LaTeX Jupyter : LaTeX-Le_BN_pour_formuler.ipynb
+    - Visual Studio Code  : Windows10.md
 
 # Définition du thème https://squidfunk.github.io/mkdocs-material/creating-your-site/
 theme:
