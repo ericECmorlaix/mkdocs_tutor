@@ -1,0 +1,827 @@
+<!-- Ajout pour le bouton de téléchargement et le style des jupyter notebook   https://github.com/danielfrg/mkdocs-jupyter -->
+
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Tutoriel pour déployer un site web avec MkDocs sur iPad et GitHub.">
+      
+      
+      
+        <meta name="author" content="Eric MADEC">
+      
+      
+        <link rel="canonical" href="https://ericecmorlaix.github.io/mkdocs_tutor/">
+      
+      <link rel="icon" href="images/LogoIO-orange.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>Tutoriel pour MkDocs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+    
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="purple">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prerequis" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Tutoriel pour MkDocs" class="md-header__button md-logo" aria-label="Tutoriel pour MkDocs" data-md-component="logo">
+      
+  <img src="images/LogoIO.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tutoriel pour MkDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Feuille de route
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="purple"  aria-label="Basculer en mode sombre"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Basculer en mode sombre" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="orange"  aria-label="Basculer en mode clair"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Basculer en mode clair" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/ericECmorlaix/mkdocs_tutor/" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mkdocs_tutor
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="." class="md-tabs__link md-tabs__link--active">
+      Feuille de route
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="iSH_Shell/" class="md-tabs__link">
+      iSH Shell
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="MarkDown-Le_BN_pour_rapporter/" class="md-tabs__link">
+      Le Bloc Note pour rapporter
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="HTML-Le_BN_pour_multimedier/" class="md-tabs__link">
+      Le Bloc Note pour le multimédia
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="LaTeX-Le_BN_pour_formuler/" class="md-tabs__link">
+      Le Bloc Note pour formuler
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="Windows10/" class="md-tabs__link">
+      Visual Studio Code
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Tutoriel pour MkDocs" class="md-nav__button md-logo" aria-label="Tutoriel pour MkDocs" data-md-component="logo">
+      
+  <img src="images/LogoIO.png" alt="logo">
+
+    </a>
+    Tutoriel pour MkDocs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/ericECmorlaix/mkdocs_tutor/" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mkdocs_tutor
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Feuille de route
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Feuille de route
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    Prérequis :
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#votre-premier-site" class="md-nav__link">
+    Votre premier site :
+  </a>
+  
+    <nav class="md-nav" aria-label="Votre premier site :">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generer-les-fichiers" class="md-nav__link">
+    Générer les fichiers :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction-du-site" class="md-nav__link">
+    Construction du site :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publication-locale" class="md-nav__link">
+    Publication locale :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editermodifier-le-code" class="md-nav__link">
+    Editer/Modifier le code :
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#votre-second-site" class="md-nav__link">
+    Votre second site :
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publier-votre-portfolio-sur-github" class="md-nav__link">
+    Publier votre portfolio sur GitHub :
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources" class="md-nav__link">
+    Ressources :
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="iSH_Shell/" class="md-nav__link">
+        iSH Shell
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MarkDown-Le_BN_pour_rapporter/" class="md-nav__link">
+        Le Bloc Note pour rapporter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HTML-Le_BN_pour_multimedier/" class="md-nav__link">
+        Le Bloc Note pour le multimédia
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LaTeX-Le_BN_pour_formuler/" class="md-nav__link">
+        Le Bloc Note pour formuler
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Windows10/" class="md-nav__link">
+        Visual Studio Code
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+
+
+
+
+                
+                  <a href="https://github.com/ericECmorlaix/mkdocs_tutor/tree/main/docs/index.md" title="Editer cette page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>Feuille de route</h1>
+                
+                <p>Ceci est un tutoriel pour déployer un site web avec le framework MkDocs et le thème Material sur votre iPad et GitHub.</p>
+<h2 id="prerequis">Prérequis :<a class="headerlink" href="#prerequis" title="Permanent link">⚓︎</a></h2>
+<p>Pour commencer,  il va vous falloir installer un OS Linux sur votre iPad et tous les paquets logiciels utiles au fonctionnement de <strong>MkDocs</strong>, pour ce faire suivez les instructions de la page <a href="./iSH_Shell">iSH Shell</a> ;</p>
+<h2 id="votre-premier-site">Votre premier site :<a class="headerlink" href="#votre-premier-site" title="Permanent link">⚓︎</a></h2>
+<p>Puisque vous êtes maintenant en mesure de faire fonctionner MkDocs sur votre machine, il est temps de générer votre premier site afin de comprendre comment cela fonctionne...</p>
+<h3 id="generer-les-fichiers">Générer les fichiers :<a class="headerlink" href="#generer-les-fichiers" title="Permanent link">⚓︎</a></h3>
+<p>Dans un terminal d'<a href="iSH_Shell">iSH Shell</a>, saisir la commande :
+<div class="highlight"><pre><span></span><code>mkdocs new monPremierSite
+</code></pre></div></p>
+<details class="done"><summary>Vérification</summary><p>Vous devez obtenir un message équivalent à :</p>
+<div class="highlight"><pre><span></span><code>INFO    -  Creating project directory: monPremierSite
+INFO    -  Writing config file: monPremierSite/mkdocs.ym
+INFO    -  Writing initial docs: monPremierSite/docs/index.md
+</code></pre></div>
+</details>
+<details class="info"><summary>Observation</summary><p>Utiliser les commandes <code>ls</code> et <code>cd</code> afin d'observer l'architecture suivante des fichiers dans le dossier :</p>
+<div class="highlight"><pre><span></span><code><span class="go">.</span>
+<span class="go">├─ docs/</span>
+<span class="go">│  └─ index.md</span>
+<span class="go">└─ mkdocs.yml</span>
+</code></pre></div>
+</details>
+<h3 id="construction-du-site">Construction du site :<a class="headerlink" href="#construction-du-site" title="Permanent link">⚓︎</a></h3>
+<p>Toujours dans un terminal d'<a href="iSH_Shell">iSH Shell</a>, <mark>depuis le dossier de votre site</mark>, saisir la commande :
+<div class="highlight"><pre><span></span><code>mkdocs build
+</code></pre></div></p>
+<details class="done"><summary>Vérification</summary><p>Vous devez obtenir un message équivalent à :</p>
+<div class="highlight"><pre><span></span><code>INFO    -  Cleaning site directory
+INFO    -  Building documentation to directory: /root/monPremierSite/site
+INFO    -  Documentation built in 7.60 seconds
+</code></pre></div>
+</details>
+<details class="info"><summary>Observation</summary><p>Installer puis utiliser la commande <code>tree</code> afin d'observer la nouvelle architecture des fichiers dans le dossier :</p>
+<div class="highlight"><pre><span></span><code>└── monPremierSite
+├── docs
+│   └── index.md
+├── mkdocs.yml
+└── site
+    ├── 404.html
+    ├── css
+    │   ├── base.css
+    │   ├── bootstrap.min.css
+    │   └── font-awesome.min.css
+    ├── fonts
+    │   ├── fontawesome-webfont.eot
+    │   ├── fontawesome-webfont.svg
+    │   ├── fontawesome-webfont.ttf
+    │   ├── fontawesome-webfont.woff
+    │   ├── fontawesome-webfont.woff2
+    │   ├── glyphicons-halflings-regular.eot
+    │   ├── glyphicons-halflings-regular.svg
+    │   ├── glyphicons-halflings-regular.ttf
+    │   ├── glyphicons-halflings-regular.woff
+    │   └── glyphicons-halflings-regular.woff2
+    ├── img
+    │   ├── favicon.ico
+    │   └── grid.png
+    ├── index.html
+    ├── js
+    │   ├── base.js
+    │   ├── bootstrap.min.js
+    │   └── jquery-1.10.2.min.js
+    ├── search
+    │   ├── lunr.js
+    │   ├── main.js
+    │   ├── search_index.json
+    │   └── worker.js
+    ├── sitemap.xml
+    └── sitemap.xml.gz
+</code></pre></div>
+</details>
+<h3 id="publication-locale">Publication locale :<a class="headerlink" href="#publication-locale" title="Permanent link">⚓︎</a></h3>
+<p>Maintenant que les fichiers de votre site web sont hébergés sur votre tablette, on peut très simplement publier ses pages localement et les visualiser depuis n'importe quelle autre machine connectée sur le même réseau que votre iPad.</p>
+<p>Sur votre iPad, encore dans un terminal d'<a href="iSH_Shell">iSH Shell</a>, <mark>depuis le dossier <code>monPremierSite/site</code></mark> saisir la commande :</p>
+<p><div class="highlight"><pre><span></span><code>python3 -m http.server
+</code></pre></div>
+Le mieux alors est d'afficher en partage d'écran la fenêtre du terminal et l'application <code>Safari</code>;</p>
+<details class="done"><summary>Vérification</summary><p>Vous devez obtenir un message équivalent à :</p>
+<div class="highlight"><pre><span></span><code>Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/)...
+</code></pre></div>
+</details>
+<p>Puis, dans le navigateur de votre iPad saisir l'URL : <code>http://127.0.0.1:8000</code>.</p>
+<p>Enfin depuis un navigateur d'une autre machine, saisir l'URL : <code>http://&lt;IP_de_votre_iPad&gt;:8000</code></p>
+<details class="info"><summary>Observation</summary><p>Observer les logs...</p>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Interruption</p>
+<p>Pour arrêter le serveur, appuyer sur les touches <span class="keys"><kbd>^ Ctrl</kbd><span>＋</span><kbd>C</kbd></span>     </p>
+</div>
+<h2 id="editermodifier-le-code">Editer/Modifier le code :<a class="headerlink" href="#editermodifier-le-code" title="Permanent link">⚓︎</a></h2>
+<p>Pour modifier les fichier de notre site, nous avons besoin d'un éditeur de code. Au moins deux solutions s'offrent à nous :</p>
+<ul>
+<li>
+<p>l'application <a href="https://kodex.app/">Kodex</a> disponible dans votre Self-Service ;</p>
+</li>
+<li>
+<p>ou installer dans un terminal d'<a href="iSH_Shell">iSH Shell</a> le sympathique éditeur <a href="https://micro-editor.github.io/">micro-editor</a> <img alt="😉" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f609.svg" title=":wink:" /> </p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>apk update
+apk add bash
+apk add curl
+curl https://getmic.ro <span class="p">|</span> bash
+mv micro /usr/bin
+</code></pre></div>
+<p>Modifier ou remplacer le contenu du fichier <code>docs/index.md</code> et ajouter dans le fichier <code>mkdocs.yml</code> les lignes suivantes :</p>
+<p><div class="highlight"><pre><span></span><code><span class="nt">theme</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">material</span>
+</code></pre></div>
+Pour vérifier l'effet de ces modifications à la volée, dans un terminal d'<a href="iSH_Shell">iSH Shell</a>, <mark>depuis le dossier de votre site</mark>, saisir la commande :</p>
+<p><div class="highlight"><pre><span></span><code>mkdocs serve
+</code></pre></div>
+Cela à pour effet de démarrer un serveur local pour visualiser le résultat dans un navigateur à l'adresse <code>http://127.0.0.1:8000</code>.</p>
+<h2 id="votre-second-site">Votre second site :<a class="headerlink" href="#votre-second-site" title="Permanent link">⚓︎</a></h2>
+<p>Pour cette seconde expérience, vous allez créer un portfolio de cours en adaptant le site visible à cette adresse : <a href="https://ericecmorlaix.github.io/mkdocs_boilerplate/">https://ericecmorlaix.github.io/mkdocs_boilerplate/</a> ;</p>
+<p><a class="md-button" href="https://github.com/ericECmorlaix/mkdocs_boilerplate/archive/refs/heads/main.zip">Cliquer ici pour télécharger une archive de ce projet</a>   </p>
+<p>Extraire le dossier de cette archive, le copier et le renommer <code>monClasseurNSI</code> dans le dossier <code>/root</code> d'iSH ;</p>
+<p>Analyser l'architecture des fichiers ;</p>
+<p>Copier vos notebooks de Carnets Jupyter dans le dossier <code>docs</code> ;</p>
+<p>Modifier le contenu du fichier <code>docs/index.md</code> et personaliser le fichier <code>mkdocs.yml</code> notamment en indiquant les références de vos notebooks dans le menu de navigation ;</p>
+<p>Vérifier progressivement l'effet de vos modifications dans votre navigateur en démarrant un serveur local avec la commande <code>mkdocs serve</code> ;</p>
+<h2 id="publier-votre-portfolio-sur-github">Publier votre portfolio sur GitHub :<a class="headerlink" href="#publier-votre-portfolio-sur-github" title="Permanent link">⚓︎</a></h2>
+<p>Créer sur GitHub un dépot au nom de votre dossier <code>monClasseurNSI</code> sans créer de fichier <code>Readme.md</code> ;</p>
+<p>En ligne de commande dans un terminal d'<a href="iSH_Shell">iSH Shell</a> :</p>
+<ul>
+<li>installer et configurer git, si ce n'est pas déjà fait :</li>
+</ul>
+<div class="highlight"><pre><span></span><code>apk update <span class="c1"># On met à jour le gestionnaire de paquets</span>
+apk add git <span class="c1"># On installe le paquet git pour pouvoir piloter un dossier depuis GitHub</span>
+git config --global user.name <span class="s2">&quot;votrePseudoGitHub&quot;</span>
+git config --global user.email <span class="s2">&quot;prenom.nom@eleves.ecmorlaix.fr&quot;</span> 
+git config --list <span class="c1"># vérifier la configuration globale</span>
+</code></pre></div>
+<ul>
+<li>piloter votre dépot GitHub :</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> monClasseurNSI <span class="c1"># ce placer dans le dossier à piloter </span>
+git init
+git status
+git add *
+git commit -m <span class="s2">&quot;premier commit&quot;</span>
+git remote add origin https://github.com/votrePseudoGitHub/monClasseurNSI.git
+git branch -M main
+git push -u origin main
+</code></pre></div>
+<p>Rendez-vous sur GitHub pour voir la mise à jour de votre dépot ;<br />
+Après quelques minutes une seconde branche devrait être automatiquement créée...<br />
+Allez alors dans le menu <code>Settings</code> puis <code>Pages</code> et sélectionner la branche <code>gh-pages</code> et le dossier <code>/(root)</code> pour construire votre site ;
+Il sera alors visible à l'adresse <code>https://votrePseudoGitHub.github.io/monClasseurNSI.git</code></p>
+<h2 id="ressources">Ressources :<a class="headerlink" href="#ressources" title="Permanent link">⚓︎</a></h2>
+<p>Explorer les possibilités de code <em>Markdown</em>, <em>HTML</em> et <span class="arithmatex">\(\LaTeX{}\)</span> :</p>
+<ul>
+<li><a href="MarkDown-Le_BN_pour_rapporter">MarkDown Jupyter</a></li>
+<li><a href="HTML-Le_BN_pour_multimedier">HTML Jupyter</a></li>
+<li>
+<p><a href="LaTeX-Le_BN_pour_formuler">LaTeX Jupyter</a></p>
+</li>
+<li>
+<p>De Jupyter à MkDocs, par Franck CHAMBON :</p>
+<ul>
+<li><a href="https://ens-fr.gitlab.io/mkdocs/markdown-bases/">Bases de Markdown</a> </li>
+<li><a href="https://ens-fr.gitlab.io/mkdocs/markdown-mkdocs/">Markdown pour MkDocs</a></li>
+<li><a href="https://ens-fr.gitlab.io/mkdocs/maths/">Écrire des maths</a></li>
+</ul>
+</li>
+</ul>
+<p>Documentation officielle de <a href="https://squidfunk.github.io/mkdocs-material/">mkdocs-material</a></p>
+                
+              
+
+<style>
+    .jp-RenderedHTMLCommon p {
+        font-size: 0.8rem;
+        line-height: 1.6;
+    }
+
+    .jp-RenderedHTMLCommon li {
+        font-size: .8rem;
+        line-height: 1.6;
+    }
+
+    .jp-RenderedHTMLCommon h1 {
+        margin: 0 0 1.25em;
+        color: var(--md-default-fg-color--light);
+        font-weight: 300;
+        font-size: 2em;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+    }
+
+    .jp-RenderedHTMLCommon h2 {
+        margin: 1.6em 0 .64em;
+        font-weight: 300;
+        font-size: 1.965em;
+        line-height: 1.4;
+        letter-spacing: -0.01em;
+    }
+
+    .jp-RenderedHTMLCommon h3 {
+        margin: 1.6em 0 .8em;
+        font-weight: 400;
+        font-size: 1.57em;
+        line-height: 1.5;
+        letter-spacing: -0.01em;
+    }
+
+    .jp-RenderedHTMLCommon hr {
+        border: none;
+    }
+</style>
+
+
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" title="Back to top" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+      
+        
+        <a href="iSH_Shell/" class="md-footer__link md-footer__link--next" aria-label="Suivant: iSH Shell" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              iSH Shell
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Document partagé par <a href="https://github.com/ericECmorlaix" target="_blank">Eric MADEC</a> &copy; 2021 sous licence <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="mailto:eric.madec@ecmorlaix.fr" target="_blank" rel="noopener" title="Pour toute question, suggestion ou commentaire, écrire à l&#39;auteur" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+      
+      
+      <a href="https://github.com/ericECmorlaix/mkdocs_tutor" target="_blank" rel="noopener" title="dépôt github" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+      <a href="https://www.ecmorlaix.fr/nos-etablissements/lycee-notre-dame-du-mur/" target="_blank" rel="noopener" title="Lycée Notre Dame du Mur" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.76f349be.min.js"></script>
+      
+        <script src="javascripts/config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
